@@ -465,14 +465,20 @@ void EosTcpClientThread::run()
       sPacket packet;
 
       // connect
-      while (m_Run && tcp->GetConnectState() == EosTcp::CONNECT_IN_PROGRESS)
+      if (m_Run && tcp->GetConnectState() == EosTcp::CONNECT_IN_PROGRESS)
       {
-        tcp->Tick(m_PrivateLog);
-        UpdateLog();
-        msleep(10);
-      }
+        reconnectTimer.Start();
+        for (;;)
+        {
+          tcp->Tick(m_PrivateLog);
+          UpdateLog();
 
-      UpdateLog();
+          if (!m_Run || tcp->GetConnectState() != EosTcp::CONNECT_IN_PROGRESS || reconnectTimer.GetExpired(ReconnectDelay))
+            break;
+
+          msleep(10);
+        }
+      }
 
       // send/recv while connected
       if (m_Run && tcp->GetConnectState() == EosTcp::CONNECT_CONNECTED)
