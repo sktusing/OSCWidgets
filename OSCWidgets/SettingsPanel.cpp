@@ -180,7 +180,7 @@ SettingsPanel::SettingsPanel(QWidget *parent)
   layout->addWidget(m_Port2Label, 3, 0, 1, 1);
   layout->addWidget(m_Port2, 3, 1, 1, 1);
 
-  QPushButton *button = new QPushButton(QIcon(":/assets/images/MenuIconNetwork.png"), tr("Connect"), this);
+  QPushButton *button = new QPushButton(QIcon(":/assets/images/MenuIconNetwork.svg"), tr("Connect"), this);
   connect(button, SIGNAL(clicked(bool)), this, SLOT(onApplyClicked(bool)));
   layout->addWidget(button, 4, 0, 1, 2);
 

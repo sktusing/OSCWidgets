@@ -910,8 +910,8 @@ void EditPanel::onImagePathButtonClicked(bool /*checked*/)
   if (!m_ImagePath.isEmpty())
   {
     QMenu menu(this);
-    QAction *browseAction = menu.addAction(QIcon(":/assets/images/MenuIconOpen.png"), tr("Browse..."));
-    QAction *clearAction = menu.addAction(QIcon(":/assets/images/MenuIconTrash.png"), tr("Clear"));
+    QAction *browseAction = menu.addAction(QIcon(":/assets/images/MenuIconOpen.svg"), tr("Browse..."));
+    QAction *clearAction = menu.addAction(QIcon(":/assets/images/MenuIconTrash.svg"), tr("Clear"));
     QAction *result = menu.exec(QCursor::pos());
     if (result == clearAction)
       shouldBrowse = false;
@@ -942,8 +942,8 @@ void EditPanel::onImagePath2ButtonClicked(bool /*checked*/)
   if (!m_ImagePath2.isEmpty())
   {
     QMenu menu(this);
-    QAction *browseAction = menu.addAction(QIcon(":/assets/images/MenuIconOpen.png"), tr("Browse..."));
-    QAction *clearAction = menu.addAction(QIcon(":/assets/images/MenuIconTrash.png"), tr("Clear"));
+    QAction *browseAction = menu.addAction(QIcon(":/assets/images/MenuIconOpen.svg"), tr("Browse..."));
+    QAction *clearAction = menu.addAction(QIcon(":/assets/images/MenuIconTrash.svg"), tr("Clear"));
     QAction *result = menu.exec(QCursor::pos());
     if (result == clearAction)
       shouldBrowse = false;

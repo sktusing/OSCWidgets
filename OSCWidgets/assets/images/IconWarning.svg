@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg8"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.33072917;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 1.4336734,10.856619 6.3499998,1.8433536 11.266327,10.856619 Z"
+     id="path847" />
+  <g
+     aria-label="!"
+     id="text861"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1.25;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.294444;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     transform="matrix(0.79713137,0,0,0.79713137,0.91164676,1.0589411)">
+    <path
+       d="M 6.2918604,8.0112974 6.1375201,5.7010159 Q 6.0941119,5.025777 6.0941119,4.7315658 q 0,-0.4003202 0.2073948,-0.6221844 0.2122179,-0.2266873 0.5546604,-0.2266873 0.4147896,0 0.5546605,0.289388 0.139871,0.284565 0.139871,0.8247561 0,0.3183269 -0.033762,0.6463 L 7.3095418,8.0209437 q -0.033762,0.4244358 -0.144694,0.6511232 -0.1109321,0.2266873 -0.3665583,0.2266873 -0.2604492,0 -0.3617351,-0.2170411 Q 6.3352686,8.4598489 6.2918604,8.0112974 Z M 6.8272283,11.18492 q -0.2942112,0 -0.5160754,-0.188102 -0.217041,-0.192926 -0.217041,-0.535368 0,-0.299035 0.2073948,-0.5064293 0.2122179,-0.2122179 0.5160754,-0.2122179 0.3038575,0 0.5160754,0.2122179 0.2170411,0.2073943 0.2170411,0.5064293 0,0.337619 -0.2170411,0.530545 -0.2170411,0.192925 -0.5064292,0.192925 z"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.294444;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path863" />
+  </g>
+</svg>

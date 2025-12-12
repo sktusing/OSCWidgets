@@ -27,7 +27,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define APP_VERSION "1.0.1"
+#define APP_VERSION "1.0.2"
 
 #define MIN_OPACITY 10
 
@@ -49,26 +49,28 @@ Logo::Logo(const QString &path, QWidget *parent)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void Logo::resizeEvent(QResizeEvent *event)
+void Logo::resizeEvent(QResizeEvent * /*event*/)
 {
-  QWidget::resizeEvent(event);
-  if (!m_Original.isNull())
-  {
-    m_Scaled = QPixmap::fromImage(m_Original).scaled(size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    if (!m_Scaled.isNull())
-      update();
-  }
+  if (m_Original.isNull())
+    return;
+  m_Scaled = m_Original.pixmap(QSize(width(), width()), devicePixelRatio());
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 void Logo::paintEvent(QPaintEvent * /*event*/)
 {
-  if (!m_Scaled.isNull())
-  {
-    QPainter painter(this);
-    painter.drawPixmap(0, 0, m_Scaled);
-  }
+  if (m_Scaled.isNull())
+    return;
+
+  qreal dpr = m_Scaled.devicePixelRatio();
+  if (dpr <= 0)
+    dpr = 1;
+
+  int layoutHeight = m_Scaled.height() / dpr;
+
+  QPainter painter(this);
+  painter.drawPixmap(0, height() - layoutHeight, m_Scaled);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -76,7 +78,7 @@ void Logo::paintEvent(QPaintEvent * /*event*/)
 EosTreeWidget::EosTreeWidget(QWidget *parent)
   : QTreeWidget(parent)
 {
-  m_Logo = new Logo(":/assets/images/ETCLogo.png", this);
+  m_Logo = new Logo(":/assets/images/Logo.svg", this);
   m_Logo->lower();
 }
 
@@ -85,7 +87,7 @@ EosTreeWidget::EosTreeWidget(QWidget *parent)
 void EosTreeWidget::resizeEvent(QResizeEvent *event)
 {
   QTreeWidget::resizeEvent(event);
-  int logoSize = qRound(0.8 * qMin(width(), height()));
+  int logoSize = qMin(width(), height());
   int scrollBarHeight = 0;
   QScrollBar *scrollBar = horizontalScrollBar();
   if (scrollBar && scrollBar->isVisible())
@@ -193,11 +195,11 @@ MainWindow::MainWindow(EosPlatform *platform, QWidget *parent /*=0*/, Qt::Window
   Toy::RestoreDefaultSettings();
   Toy::SetDefaultWindowIcon(*this);
 
-  m_SystemTray = new QSystemTrayIcon(QIcon(":/assets/images/SystemTrayIcon.png"), this);
+  m_SystemTray = new QSystemTrayIcon(QIcon(":/assets/images/SystemTrayIcon.svg"), this);
   m_SystemTrayMenu = new QMenu(0);
-  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconHome.png"), tr("Toggle Main Window"), this, SLOT(onSystemTrayToggledMainWindow()));
-  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconVisibility.png"), tr("Toggle Toys"), this, SLOT(onSystemTrayToggleToys()));
-  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconExit.png"), EXIT_OPTION ? tr("Exit") : tr("Quit"), this, SLOT(onSystemTrayExit()));
+  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconHome.svg"), tr("Toggle Main Window"), this, SLOT(onSystemTrayToggledMainWindow()));
+  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconVisibility.svg"), tr("Toggle Toys"), this, SLOT(onSystemTrayToggleToys()));
+  m_SystemTrayMenu->addAction(QIcon(":/assets/images/MenuIconExit.svg"), EXIT_OPTION ? tr("Exit") : tr("Quit"), this, SLOT(onSystemTrayExit()));
   connect(m_SystemTray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(onSystemTrayActivated(QSystemTrayIcon::ActivationReason)));
   m_SystemTray->setToolTip(QString("OSCWidgets\nv%1").arg(APP_VERSION));
   m_SystemTray->show();
@@ -242,7 +244,7 @@ MainWindow::MainWindow(EosPlatform *platform, QWidget *parent /*=0*/, Qt::Window
   m_ToyTree->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::MinimumExpanding);
   QPalette treePal(m_ToyTree->palette());
   QColor treeBase(palette().color(QPalette::Window));
-  treeBase.setAlpha(220);
+  treeBase.setAlpha(245);
   treePal.setColor(QPalette::Base, treeBase);
   QColor treeAltBase(palette().color(QPalette::AlternateBase));
   treeAltBase.setAlpha(70);
@@ -315,14 +317,14 @@ QMenuBar *MainWindow::InitMenuBar(bool systemMenuBar)
   QMenuBar *menuBar = new QMenuBar(systemMenuBar ? 0 : this);
 
   QMenu *fileMenu = menuBar->addMenu(tr("&File"));
-  fileMenu->addAction(QIcon(":/assets/images/MenuIconNew.png"), tr("&New"), this, SLOT(onNewFileClicked()));
-  fileMenu->addAction(QIcon(":/assets/images/MenuIconOpen.png"), tr("&Open..."), this, SLOT(onOpenFileClicked()));
-  fileMenu->addAction(QIcon(":/assets/images/MenuIconSave.png"), tr("&Save"), this, SLOT(onSaveFileClicked()));
+  fileMenu->addAction(QIcon(":/assets/images/MenuIconNew.svg"), tr("&New"), this, SLOT(onNewFileClicked()));
+  fileMenu->addAction(QIcon(":/assets/images/MenuIconOpen.svg"), tr("&Open..."), this, SLOT(onOpenFileClicked()));
+  fileMenu->addAction(QIcon(":/assets/images/MenuIconSave.svg"), tr("&Save"), this, SLOT(onSaveFileClicked()));
   fileMenu->addAction(tr("Save &As..."), this, SLOT(onSaveAsFileClicked()));
   fileMenu->addSeparator();
-  fileMenu->addAction(QIcon(":/assets/images/MenuIconSettings.png"), tr("Ad&vanced..."), this, SLOT(onAdvancedClicked()));
+  fileMenu->addAction(QIcon(":/assets/images/MenuIconSettings.svg"), tr("Ad&vanced..."), this, SLOT(onAdvancedClicked()));
   fileMenu->addSeparator();
-  fileMenu->addAction(QIcon(":/assets/images/MenuIconExit.png"), EXIT_OPTION ? tr("E&xit") : tr("Close"), this, SLOT(onSystemTrayExit()));
+  fileMenu->addAction(QIcon(":/assets/images/MenuIconExit.svg"), EXIT_OPTION ? tr("E&xit") : tr("Close"), this, SLOT(onSystemTrayExit()));
 
   QMenu *windowsMenu = menuBar->addMenu(tr("&Windows"));
   m_MenuActionFrames = windowsMenu->addAction(tr("Frames"));
@@ -337,18 +339,18 @@ QMenuBar *MainWindow::InitMenuBar(bool systemMenuBar)
     m_MenuActionAlwaysOnTop->setCheckable(true);
     connect(m_MenuActionAlwaysOnTop, SIGNAL(toggled(bool)), this, SLOT(onMenuAlwaysOnTop(bool)));
   }
-  windowsMenu->addAction(QIcon(":/assets/images/MenuIconScreen.png"), tr("Snap To Screen"), this, SLOT(onMenuSnapToEdges()));
+  windowsMenu->addAction(QIcon(":/assets/images/MenuIconSnap.svg"), tr("Snap To Screen"), this, SLOT(onMenuSnapToEdges()));
   m_OpacityMenu = new OpacityMenu();
-  m_OpacityMenu->setIcon(QIcon(":/assets/images/MenuIconView.png"));
+  m_OpacityMenu->setIcon(QIcon(":/assets/images/MenuIconView.svg"));
   connect(m_OpacityMenu, SIGNAL(opacityChanged(int)), this, SLOT(onMenuOpacity(int)));
   windowsMenu->addMenu(m_OpacityMenu);
 
   QMenu *oscMenu = menuBar->addMenu("&OSC");
-  oscMenu->addAction(QIcon(":/assets/images/MenuIconRefresh.png"), tr("&Clear OSC Labels"), this, SLOT(onMenuClearLabels()));
+  oscMenu->addAction(QIcon(":/assets/images/MenuIconRefresh.svg"), tr("&Clear OSC Labels"), this, SLOT(onMenuClearLabels()));
 
   QMenu *logMenu = menuBar->addMenu("&Log");
-  logMenu->addAction(QIcon(":/assets/images/MenuIconRefresh.png"), tr("&Clear"), this, SLOT(onClearLogClicked()));
-  logMenu->addAction(QIcon(":/assets/images/MenuIconLog.png"), tr("&View"), this, SLOT(onOpenLogClicked()));
+  logMenu->addAction(QIcon(":/assets/images/MenuIconRefresh.svg"), tr("&Clear"), this, SLOT(onClearLogClicked()));
+  logMenu->addAction(QIcon(":/assets/images/MenuIconLog.svg"), tr("&View"), this, SLOT(onOpenLogClicked()));
 
   return (systemMenuBar ? 0 : menuBar);
 }
@@ -547,7 +549,7 @@ bool MainWindow::SaveFile(const QString &path, bool setLastFile)
   {
     QMessageBox *mb = new QMessageBox(QMessageBox::NoIcon, tr("OSCWidgets"), tr("Unable to save file \"%1\"\n\n%2").arg(path).arg(f.errorString()), QMessageBox::Ok, this);
     mb->setAttribute(Qt::WA_DeleteOnClose);
-    mb->setIconPixmap(QPixmap(":/assets/images/IconWarning.png"));
+    mb->setIconPixmap(QIcon(":/assets/images/IconWarning.svg").pixmap(48));
     mb->setModal(true);
     mb->show();
   }
@@ -759,7 +761,6 @@ void MainWindow::PopulateToyTree()
   if (toys.size() != 0)
     label += QStringLiteral(" (%1)").arg(toys.size());
   m_ToyTree->setHeaderLabel(label);
-  m_ToyTree->setAlternatingRowColors(true);
 
   bool hasToys = false;
 
@@ -834,7 +835,7 @@ void MainWindow::PromptForUnsavedChanges(bool &abortPendingOperation)
   if (m_Unsaved)
   {
     QMessageBox mb(QMessageBox::NoIcon, tr("OSCWidgets"), tr("Do you want to save changes?"), QMessageBox::NoButton, this);
-    mb.setIconPixmap(QPixmap(":/assets/images/IconQuestion.png"));
+    mb.setIconPixmap(QIcon(":/assets/images/IconQuestion.svg").pixmap(48));
     QPushButton *saveButton = mb.addButton(tr("Save"), QMessageBox::AcceptRole);
     mb.addButton(tr("Don't Save"), QMessageBox::DestructiveRole);
     QPushButton *cancelButton = mb.addButton(tr("Cancel"), QMessageBox::RejectRole);
@@ -941,7 +942,7 @@ void MainWindow::onOpenFileClicked()
       {
         QMessageBox *mb = new QMessageBox(QMessageBox::NoIcon, tr("OSCWidgets"), tr("Unable to open file \"%1\"").arg(path), QMessageBox::Ok, this);
         mb->setAttribute(Qt::WA_DeleteOnClose);
-        mb->setIconPixmap(QPixmap(":/assets/images/IconWarning.png"));
+        mb->setIconPixmap(QIcon(":/assets/images/IconWarning.svg").pixmap(48));
         mb->setModal(true);
         mb->show();
       }
@@ -1086,8 +1087,11 @@ void MainWindow::onMenuFramesEnabled(bool b)
 ////////////////////////////////////////////////////////////////////////////////
 
 void MainWindow::onMenuAlwaysOnTop(bool b)
-{
+{  
+  bool wasVisible = isVisible();
   m_Toys->SetTopMost(b);
+  setWindowFlag(Qt::WindowStaysOnTopHint, b);
+  setVisible(wasVisible);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1150,7 +1154,7 @@ void MainWindow::onToyTreeItemDeleted()
 
     QMessageBox *mb = new QMessageBox(QMessageBox::NoIcon, tr("Delete"), tr("Are you sure you want to delete %1").arg(name), QMessageBox::Yes | QMessageBox::Cancel, this);
     mb->setAttribute(Qt::WA_DeleteOnClose);
-    mb->setIconPixmap(QPixmap(":/assets/images/IconQuestion.png"));
+    mb->setIconPixmap(QIcon(":/assets/images/IconQuestion.svg").pixmap(48));
     mb->setModal(true);
     connect(mb, &QMessageBox::finished, this, &MainWindow::onToyTreeItemDeleteConfirm);
     mb->show();
@@ -1163,7 +1167,7 @@ void MainWindow::onToyTreeItemDeleteConfirm(int result)
 {
   if (result != QMessageBox::Yes)
     return;
-  
+
   m_Toys->DeleteToy(m_ToyTreeToyIndex);
 }
 
@@ -1197,7 +1201,7 @@ void MainWindow::onToyTreeCustomContextMenuRequested(const QPoint &p)
           Toy::GetName(m_ToyTreeType, name);
 
           QMenu menu(this);
-          menu.addAction(QIcon(":/assets/images/MenuIconAdd.png"), tr("Add %1").arg(name), this, SLOT(onToyTreeItemAdded()));
+          menu.addAction(QIcon(":/assets/images/MenuIconAdd.svg"), tr("Add %1").arg(name), this, SLOT(onToyTreeItemAdded()));
           QWidget *w = m_ToyTree->viewport();
           if (!w)
             w = m_ToyTree;
@@ -1217,7 +1221,7 @@ void MainWindow::onToyTreeCustomContextMenuRequested(const QPoint &p)
         toy->GetName(name);
 
         QMenu menu(this);
-        menu.addAction(QIcon(":/assets/images/MenuIconTrash.png"), tr("Delete %1...").arg(name), this, SLOT(onToyTreeItemDeleted()));
+        menu.addAction(QIcon(":/assets/images/MenuIconTrash.svg"), tr("Delete %1...").arg(name), this, SLOT(onToyTreeItemDeleted()));
         QWidget *w = m_ToyTree->viewport();
         if (!w)
           w = m_ToyTree;

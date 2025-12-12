@@ -55,7 +55,7 @@ public:
   Logo(const QString &path, QWidget *parent);
 
 protected:
-  QImage m_Original;
+  QIcon m_Original;
   QPixmap m_Scaled;
 
   virtual void resizeEvent(QResizeEvent *event);

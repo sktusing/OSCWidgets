@@ -835,7 +835,7 @@ bool ToyGrid::ConfirmGridResize(QWidget *parent, bool tab, const QSize &beforeSi
       }
 
       QMessageBox mb(QMessageBox::NoIcon, tr("OSCWidgets"), text, QMessageBox::NoButton, parent);
-      mb.setIconPixmap(QPixmap(":/assets/images/IconQuestion.png"));
+      mb.setIconPixmap(QIcon(":/assets/images/IconQuestion.svg").pixmap(48));
       QPushButton *yesButton = mb.addButton(tr("Yes"), QMessageBox::AcceptRole);
       mb.addButton(tr("No"), QMessageBox::DestructiveRole);
       mb.addButton(tr("Cancel"), QMessageBox::RejectRole);
@@ -896,7 +896,7 @@ void ToyGrid::contextMenuEvent(QContextMenuEvent *event)
 
   if (m_Type == TOY_WINDOW)
   {
-    QMenu *addMenu = menu.addMenu(QIcon(":/assets/images/MenuIconAdd.png"), tr("Add..."));
+    QMenu *addMenu = menu.addMenu(QIcon(":/assets/images/MenuIconAdd.svg"), tr("Add..."));
     if (addMenu)
     {
       QString str;
@@ -913,7 +913,7 @@ void ToyGrid::contextMenuEvent(QContextMenuEvent *event)
       }
     }
 
-    GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_TABS, 1), QIcon(":/assets/images/MenuIconGrid.png"), tr("Tabs"));
+    GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_TABS, 1), QIcon(":/assets/images/MenuIconGrid.svg"), tr("Tabs"));
     connect(gridSizeMenu, SIGNAL(gridResized(size_t, const QSize &)), this, SLOT(onTabResized(size_t, const QSize &)));
     menu.addMenu(gridSizeMenu);
   }
@@ -927,10 +927,10 @@ void ToyGrid::contextMenuEvent(QContextMenuEvent *event)
       name = toyWidget->GetText();
       if (name.isEmpty())
         Toy::GetDefaultPathName(m_Type, name);
-      menu.addAction(QIcon(":/assets/images/MenuIconEdit.png"), tr("Edit %1...").arg(name), this, SLOT(onEditToyWidget()));
+      menu.addAction(QIcon(":/assets/images/MenuIconEdit.svg"), tr("Edit %1...").arg(name), this, SLOT(onEditToyWidget()));
     }
 
-    GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_WIDTH, QUICK_GRID_HEIGHT), QIcon(":/assets/images/MenuIconGrid.png"), tr("Grid"));
+    GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_WIDTH, QUICK_GRID_HEIGHT), QIcon(":/assets/images/MenuIconGrid.svg"), tr("Grid"));
     connect(gridSizeMenu, SIGNAL(gridResized(size_t, const QSize &)), this, SLOT(onGridResized(size_t, const QSize &)));
     menu.addMenu(gridSizeMenu);
   }
@@ -938,20 +938,20 @@ void ToyGrid::contextMenuEvent(QContextMenuEvent *event)
   GetName(name);
 
   if (hasLayoutMode)
-    menu.addAction(QIcon(":/assets/images/MenuIconSettings.png"), tr("Layout Mode..."), this, SLOT(onLayoutMode()));
+    menu.addAction(QIcon(":/assets/images/MenuIconSettings.svg"), tr("Layout Mode..."), this, SLOT(onLayoutMode()));
   else
-    menu.addAction(QIcon(":/assets/images/MenuIconSettings.png"), tr("%1 Settings...").arg(name), this, SLOT(onEdit()));
+    menu.addAction(QIcon(":/assets/images/MenuIconSettings.svg"), tr("%1 Settings...").arg(name), this, SLOT(onEdit()));
 
   if (m_Mode == ToyWidget::MODE_EDIT)
-    menu.addAction(QIcon(":/assets/images/MenuIconCheck.png"), tr("Done Editing"), this, SLOT(onDone()));
+    menu.addAction(QIcon(":/assets/images/MenuIconCheck.svg"), tr("Done Editing"), this, SLOT(onDone()));
 
-  menu.addAction(QIcon(":/assets/images/MenuIconRefresh.png"), tr("Clear OSC Labels"), this, SLOT(onClearLabels()));
-
-  menu.addSeparator();
-  menu.addAction(QIcon(":/assets/images/MenuIconTrash.png"), tr("Delete %1...").arg(name), this, SLOT(onDelete()));
+  menu.addAction(QIcon(":/assets/images/MenuIconRefresh.svg"), tr("Clear OSC Labels"), this, SLOT(onClearLabels()));
 
   menu.addSeparator();
-  menu.addAction(QIcon(":/assets/images/MenuIconHome.png"), tr("Toggle Main Window"), this, SLOT(onToggleMainWindow()));
+  menu.addAction(QIcon(":/assets/images/MenuIconTrash.svg"), tr("Delete %1...").arg(name), this, SLOT(onDelete()));
+
+  menu.addSeparator();
+  menu.addAction(QIcon(":/assets/images/MenuIconHome.svg"), tr("Toggle Main Window"), this, SLOT(onToggleMainWindow()));
 
   m_pContextMenu = &menu;
   menu.exec(event->globalPos());
@@ -999,7 +999,7 @@ void ToyGrid::onDelete()
   QMessageBox *mb = new QMessageBox(QMessageBox::NoIcon, tr("Delete"), tr("Are you sure you want to delete %1").arg(name), QMessageBox::Yes | QMessageBox::Cancel, this);
   mb->setAttribute(Qt::WA_DeleteOnClose);
   mb->setModal(true);
-  mb->setIconPixmap(QPixmap(":/assets/images/IconQuestion.png"));
+  mb->setIconPixmap(QIcon(":/assets/images/IconQuestion.svg").pixmap(48));
   connect(mb, &QMessageBox::finished, this, &ToyGrid::onDeleteConfirm);
   mb->show();
 }

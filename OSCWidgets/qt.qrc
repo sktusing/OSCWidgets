@@ -21,28 +21,28 @@
 	<file>assets/fonts/RobotoCondensed-Light.ttf</file>
 	<file>assets/fonts/RobotoCondensed-LightItalic.ttf</file>
 	<file>assets/fonts/RobotoCondensed-Regular.ttf</file>
-	<file>assets/images/MenuIconTrash.png</file>
-	<file>assets/images/MenuIconSettings.png</file>
-	<file>assets/images/MenuIconEdit.png</file>
-	<file>assets/images/MenuIconCheck.png</file>
-	<file>assets/images/MenuIconAdd.png</file>
-	<file>assets/images/MenuIconVisibility.png</file>
-	<file>assets/images/MenuIconExit.png</file>
-	<file>assets/images/MenuIconHome.png</file>
-	<file>assets/images/MenuIconRefresh.png</file>
-	<file>assets/images/MenuIconGrid.png</file>
-	<file>assets/images/MenuIconScreen.png</file>
-	<file>assets/images/MenuIconView.png</file>
-	<file>assets/images/MenuIconSave.png</file>
-	<file>assets/images/MenuIconOpen.png</file>
-	<file>assets/images/MenuIconLog.png</file>
-	<file>assets/images/MenuIconNew.png</file>
-	<file>assets/images/MenuIconNetwork.png</file>
-	<file>assets/images/MenuIconUp.png</file>
-	<file>assets/images/MenuIconDown.png</file>
-	<file>assets/images/IconQuestion.png</file>
-	<file>assets/images/IconWarning.png</file>
-	<file>assets/images/ETCLogo.png</file>
-	<file>assets/images/SystemTrayIcon.png</file>
+	<file>assets/images/MenuIconTrash.svg</file>
+	<file>assets/images/MenuIconSettings.svg</file>
+	<file>assets/images/MenuIconEdit.svg</file>
+	<file>assets/images/MenuIconCheck.svg</file>
+	<file>assets/images/MenuIconAdd.svg</file>
+	<file>assets/images/MenuIconVisibility.svg</file>
+	<file>assets/images/MenuIconExit.svg</file>
+	<file>assets/images/MenuIconHome.svg</file>
+	<file>assets/images/MenuIconRefresh.svg</file>
+	<file>assets/images/MenuIconGrid.svg</file>
+	<file>assets/images/MenuIconSnap.svg</file>
+	<file>assets/images/MenuIconView.svg</file>
+	<file>assets/images/MenuIconSave.svg</file>
+	<file>assets/images/MenuIconOpen.svg</file>
+	<file>assets/images/MenuIconLog.svg</file>
+	<file>assets/images/MenuIconNew.svg</file>
+	<file>assets/images/MenuIconNetwork.svg</file>
+	<file>assets/images/MenuIconUp.svg</file>
+	<file>assets/images/MenuIconDown.svg</file>
+	<file>assets/images/IconQuestion.svg</file>
+	<file>assets/images/IconWarning.svg</file>
+	<file>assets/images/Logo.svg</file>
+	<file>assets/images/SystemTrayIcon.svg</file>
 </qresource>
 </RCC>

@@ -181,16 +181,16 @@ void EditFrame::contextMenuEvent(QContextMenuEvent *event)
 {
   QMenu menu(this);
 
-  menu.addAction(QIcon(":/assets/images/MenuIconUp.png"), tr("Bring to Top"), this, SLOT(onRaise()));
-  menu.addAction(QIcon(":/assets/images/MenuIconDown.png"), tr("Send to Bottom"), this, SLOT(onLower()));
+  menu.addAction(QIcon(":/assets/images/MenuIconUp.svg"), tr("Bring to Top"), this, SLOT(onRaise()));
+  menu.addAction(QIcon(":/assets/images/MenuIconDown.svg"), tr("Send to Bottom"), this, SLOT(onLower()));
 
-  GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_WIDTH, QUICK_GRID_HEIGHT), QIcon(":/assets/images/MenuIconGrid.png"), tr("Grid"));
+  GridSizeMenu *gridSizeMenu = new GridSizeMenu(0, QSize(QUICK_GRID_WIDTH, QUICK_GRID_HEIGHT), QIcon(":/assets/images/MenuIconGrid.svg"), tr("Grid"));
   connect(gridSizeMenu, SIGNAL(gridResized(size_t, const QSize &)), this, SLOT(onGridResized(size_t, const QSize &)));
   menu.addSeparator();
   menu.addMenu(gridSizeMenu);
 
   menu.addSeparator();
-  menu.addAction(QIcon(":/assets/images/MenuIconTrash.png"), tr("Delete"), this, SLOT(onDelete()));
+  menu.addAction(QIcon(":/assets/images/MenuIconTrash.svg"), tr("Delete"), this, SLOT(onDelete()));
 
   menu.exec(event->globalPos());
 }
@@ -908,7 +908,7 @@ void TabButton::keyPressEvent(QKeyEvent *event)
 void TabButton::contextMenuEvent(QContextMenuEvent *event)
 {
   QMenu menu(this);
-  menu.addAction(QIcon(":/assets/images/MenuIconEdit.png"), tr("Rename"), this, SLOT(onRename()));
+  menu.addAction(QIcon(":/assets/images/MenuIconEdit.svg"), tr("Rename"), this, SLOT(onRename()));
   menu.exec(event->globalPos());
   event->accept();
 }

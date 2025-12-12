@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg2"
+   width="16"
+   height="16"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:none;}.cls-2{fill:#999a9a;}</style>
+  </defs>
+  <title
+     id="title1">rotate</title>
+  <path
+     class="cls-2"
+     d="M 10.890674,4.1507937 7.239881,0.5 v 2.4603175 a 6.3174603,6.3174603 0 0 0 0,12.5396825 v -1.587302 a 4.7619048,4.7619048 0 0 1 0,-9.365079 v 3.0952381 z m 3.412699,4.2857142 A 6.6031746,6.6031746 0 0 0 13.033532,5.3412698 L 11.92242,6.452381 a 4.7619048,4.7619048 0 0 1 0.793651,1.9841269 z M 8.827182,13.912698 V 15.5 a 6.6031746,6.6031746 0 0 0 3.095238,-1.269841 l -1.111111,-1.111111 a 4.7619048,4.7619048 0 0 1 -1.984127,0.79365 z m 3.095238,-1.904761 1.111112,1.111111 a 5.8809524,5.8809524 0 0 0 1.269841,-3.095238 h -1.587302 a 4.7619048,4.7619048 0 0 1 -0.793651,1.984127 z"
+     id="path2"
+     style="stroke-width:0.396825;fill:#ffffff;fill-opacity:1" />
+  <metadata
+     id="metadata2">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>rotate</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

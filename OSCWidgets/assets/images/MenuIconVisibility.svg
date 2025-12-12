@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   width="16"
+   height="16"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:#999a9a;}</style>
+  </defs>
+  <title
+     id="title1">visible</title>
+  <path
+     class="cls-1"
+     d="M 8,2.8882467 A 8.0666667,8.0666667 0 0 0 0.49999992,8.0007468 8.0583334,8.0583334 0 0 0 15.5,8.0007468 8.0666667,8.0666667 0 0 0 8,2.8882467 Z m 0,1.4583334 a 2.0458333,2.0458333 0 0 1 1.3208333,0.4916667 c -0.091667,0 -0.1833333,0 -0.2791666,0 A 2.5625,2.5625 0 0 0 6.4791666,7.4007468 2.6,2.6 0 0 0 6.5125,7.8174134 2.0416667,2.0416667 0 0 1 8,4.3465801 Z M 8,12.263247 A 7.1875001,7.1875001 0 0 1 1.4041666,8.0007468 7.1958334,7.1958334 0 0 1 5.3875,4.2049134 a 3.4083334,3.4083334 0 1 0 5.225,0 7.1958334,7.1958334 0 0 1 3.983333,3.7958334 A 7.1875001,7.1875001 0 0 1 8,12.279913 Z"
+     id="path1"
+     style="stroke-width:0.416667;fill:#ffffff;fill-opacity:1" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>visible</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

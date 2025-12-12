@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     }
   }
 
-  QApplication app(argc, argv);
+  QApplication app(argc, argv);  
 
   app.setDesktopSettingsAware(false);
   app.setQuitOnLastWindowClosed(false);
@@ -55,12 +55,12 @@ int main(int argc, char *argv[])
   app.setStyle(QStyleFactory::create("Fusion"));
 
   QPalette pal;
-  pal.setColor(QPalette::Window, QColor(40, 40, 40));
+  pal.setColor(QPalette::Window, QColor(30, 30, 30));
   pal.setColor(QPalette::WindowText, TEXT_COLOR);
   pal.setColor(QPalette::Disabled, QPalette::WindowText, MUTED_COLOR);
-  pal.setColor(QPalette::Base, QColor(60, 60, 60));
-  pal.setColor(QPalette::AlternateBase, QColor(80, 80, 80));
-  pal.setColor(QPalette::Button, QColor(60, 60, 60));
+  pal.setColor(QPalette::Base, QColor(50, 50, 50));
+  pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60));
+  pal.setColor(QPalette::Button, QColor(50, 50, 50));
   pal.setColor(QPalette::Light, pal.color(QPalette::Button).lighter(20));
   pal.setColor(QPalette::Midlight, pal.color(QPalette::Button).lighter(10));
   pal.setColor(QPalette::Dark, pal.color(QPalette::Button).darker(20));

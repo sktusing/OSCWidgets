@@ -25,7 +25,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define TEXT_COLOR QColor(180, 180, 180)
+#define TEXT_COLOR QColor(220, 220, 220)
 #define MUTED_COLOR QColor(100, 100, 100)
 #define SUCCESS_COLOR QColor(16, 183, 87)
 #define ERROR_COLOR QColor(164, 66, 66)
@@ -34,7 +34,7 @@
 #define SEND_COLOR QColor(0, 181, 149)
 #define TIME_COLOR QColor(105, 92, 152)
 #define PROGRESS_COLOR QColor(61, 103, 198)
-#define BG_COLOR QColor(40, 40, 40)
+#define BG_COLOR QColor(37, 37, 37)
 
 #define MARGIN 2
 #define MARGIN2 4  // MARGIN*2

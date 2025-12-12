@@ -223,7 +223,7 @@ void LogWidget::resizeEvent(QResizeEvent * /*event*/)
 void LogWidget::paintEvent(QPaintEvent * /*event*/)
 {
   QPainter painter(this);
-  painter.fillRect(QRect(0, 0, width(), height()), palette().color(QPalette::Window));
+  painter.fillRect(QRect(0, 0, width(), height()), palette().color(QPalette::Base));
 
   size_t lineCount = GetNumLines();
 

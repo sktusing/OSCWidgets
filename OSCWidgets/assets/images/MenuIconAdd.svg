@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   width="16"
+   height="16"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:#999a9a;}</style>
+  </defs>
+  <title
+     id="title1">snap_to_ground</title>
+  <path
+     id="polygon1"
+     style="fill:#ffffff;stroke-width:0.527612;fill-opacity:1"
+     class="cls-1"
+     d="M 9.1238129,13.220718 V 2.7792825 H 6.8761871 V 13.220718 Z" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>snap_to_ground</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="path1"
+     style="fill:#ffffff;stroke-width:0.527612;fill-opacity:1"
+     class="cls-1"
+     d="M 2.7792821,9.1238128 H 13.220718 V 6.8761872 H 2.7792821 Z" />
+</svg>
